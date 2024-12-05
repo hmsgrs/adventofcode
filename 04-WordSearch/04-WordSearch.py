@@ -15,6 +15,7 @@ with open(file_path,'r') as f:
 
 succ= 0
 
+#Firts part, brute forced.
 
 for i in range(len(data)):
     for j in range(len(data[0])):
@@ -291,3 +292,23 @@ for i in range(len(data)):
                     succ += 1
 
 print(succ)
+
+#Second part, brute forced.
+
+succ_2=0
+i_d = [-1,0,1]
+j_d = [-1,0,1]
+for i in range(len(data)):
+    for j in range(len(data[0])):
+        if i > 0 and i < len(data)-1:
+            if j > 0 and j < (len(data[0])-1):
+                if data[i][j]== "A" and data[i+1][j+1] == "M" and data[i-1][j-1] == "S" and data[i+1][j-1] == "S" and data[i-1][j+1]== "M":
+                    succ_2 +=1
+                if data[i][j]== "A" and data[i+1][j+1] == "S" and data[i-1][j-1] == "M" and data[i+1][j-1] == "S" and data[i-1][j+1]== "M":
+                    succ_2 +=1
+                if data[i][j]== "A" and data[i+1][j+1] == "M" and data[i-1][j-1] == "S" and data[i+1][j-1] == "M" and data[i-1][j+1]== "S":
+                    succ_2 +=1
+                if data[i][j]== "A" and data[i+1][j+1] == "S" and data[i-1][j-1] == "M" and data[i+1][j-1] == "M" and data[i-1][j+1]== "S":
+                    succ_2 +=1
+
+print(succ_2)
